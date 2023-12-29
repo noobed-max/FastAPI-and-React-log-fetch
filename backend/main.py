@@ -1,10 +1,20 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import re
 
-app = FastAPI()
 
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # This allows all origins, you can specify your frontend URL instead
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 LOG_FILE_PATH = "D:/access/access.log"
+
 
 @app.get("/logs")
 def get_access_logs():
