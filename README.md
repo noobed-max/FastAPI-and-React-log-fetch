@@ -3,18 +3,23 @@
 ## Introduction
 Firstly, this guide assumes you are using a Debian-based system, and the entire process will be carried out through the command-line interface (CLI).
 
-Setup a docker on your host machine , they are many guides and video tutorials that can help you on hwo to setup a docker 
+---
 ---
 
----
+## Setup a docker on your host machine , they are many guides and video tutorials that can help you on hwo to setup a docker 
 
-setup two docker containers , a nginx sserver and a debian 
+setup two docker containers , a nginx server and a debian 
+
+and i have for my comfort setup a mcvlan network and connected each of the container to it , u can do so by following the [guide](https://docs.docker.com/network/drivers/macvlan/), NOTE: if you dont really want to create a mcvlan than u have to open up separate ports for each of the containers and also if you are setting up a mcvlan ensure your network interface supports promiscuous mode.
 
 <pre>docker run --name nginx_fastapi --network {mcvlan network name} -itd nginx </pre>
 
 <pre>docker run --name  react_server --network {mcvlan network name} -itd debian </pre>
 
-# Nginx and fatsapi configuration:
+---
+
+## Nginx and fatsapi configuration:
+
 
 start an interactive session with nginx_fastapi:
 
@@ -39,7 +44,9 @@ server {
 EOF' && git clone https://github.com/noobed-max/FastAPI-and-React-log-fetch.git /home/FastAPI && rm -rf /home/FastAPI/frontend/ && cd /home/FastAPI/backend/ && python3 -m venv myenv && source myenv/bin/activate && pip install fastapi uvicorn cors && exit
 ```
 
-# react_server configuration:
+---
+
+## react_server configuration:
 
 Running the follwoing to start session of react_server
 
