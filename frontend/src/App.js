@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
+  const [intervalId, setIntervalId] = useState(null);
 
   const fetchData = () => {
     fetch(`http://127.0.0.1:8000/logs`)
@@ -17,18 +18,36 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const startFetching = () => {
+    if (!intervalId) {
+      fetchData();
+      const id = setInterval(fetchData, 5000); // fetch every 5 seconds
+      setIntervalId(id);
+    }
+  };
 
+  const stopFetching = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      setIntervalId(null);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [intervalId]);
 
   return (
     <div className="container">
       <h2 style={{ color: '#00FFEF' }}>Access Logs </h2>
-      <button onClick={fetchData}>Fetch Logs</button>
+      <button onClick={startFetching}>Start Fetching</button>
+      <button onClick={stopFetching}>Stop Fetching</button>
 
       <ul className="responsive-table">
-      
         <li className="table-header">
           <div className="col col-1">IP Address</div>
           <div className="col col-2">Date and Time</div>
@@ -47,7 +66,6 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
 
