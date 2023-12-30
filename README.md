@@ -10,7 +10,9 @@ Firstly, this guide assumes you are using a Debian-based system, and the entire 
 
 setup two docker containers , a nginx server and a debian 
 
-and i have for my comfort setup a mcvlan network and connected each of the container to it , u can do so by following the [guide](https://docs.docker.com/network/drivers/macvlan/), NOTE: if you dont really want to create a mcvlan than u have to open up separate ports for each of the containers and also if you are setting up a mcvlan ensure your network interface supports promiscuous mode.
+and i have for my comfort setup a mcvlan network and connected each of the container to it , u can do so by following the [guide](https://docs.docker.com/network/drivers/macvlan/), if you are setting up a mcvlan ensure your network interface supports promiscuous mode
+
+NOTE: if you dont really want to create a mcvlan remove the [[ --network  {mcvlan network name}]] from the below commands and u have to open up separate ports for each of the containers so than the fast_api json file can be dumped on a host port and ngnix is also hosted on its own port which establishes reverse proxy connection to  react web application which again is hosted on a separate port. Therefore each application have same ip but hosted on different ports.
 
 <pre>docker run --name nginx_fastapi --network {mcvlan network name} -itd nginx </pre>
 
