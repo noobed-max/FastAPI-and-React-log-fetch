@@ -30,5 +30,4 @@ server {
         proxy_pass http://192.168.29.3:3000;
     }
 }
-EOF' && git clone https://github.com/noobed-max/FastAPI-and-React-log-fetch.git /home/FastAPI && rm -rf /home/FastAPI/frontend/ && cd /home/FastAPI/backend/ && python3 -m venv myenv && source myenv/bin/activate && pip install fastapi uvicorn 
-</pre>
+EOF' && git clone https://github.com/noobed-max/FastAPI-and-React-log-fetch.git /home/FastAPI && rm -rf /home/FastAPI/frontend/ && cd /home/FastAPI/backend/ && python3 -m venv myenv && source myenv/bin/activate && pip install fastapi uvicorn </pre>
