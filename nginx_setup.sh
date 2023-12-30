@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Install Python 3, python3-pip, nano
-sudo apt-get update
-sudo apt-get install -y python3 python3-pip nano
+apt-get update
+apt-get install -y python3 python3-pip nano
 
 # Replace default.conf in /etc/nginx/conf.d/
-sudo bash -c 'cat > /etc/nginx/conf.d/default.conf <<EOF
+bash -c 'cat > /etc/nginx/conf.d/default.conf <<EOF
 server {
     listen       80;
     listen  [::]:80;
