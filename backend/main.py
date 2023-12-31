@@ -13,7 +13,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-LOG_FILE_PATH = "D:/access/access.log"
+LOG_FILE_PATH = '{path to access.log)'
 
 
 @app.get("/logs")
