@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import config from './config.json';
 
 function App() {
   const [data, setData] = useState([]);
   const [intervalId, setIntervalId] = useState(null);
 
   const fetchData = () => {
-    fetch(`http://127.0.0.1:8000/logs`)
+    fetch(config.react.fastapi_url)
       .then((response) => response.json())
       .then((actualData) => {
         console.log(actualData);
