@@ -1,0 +1,5 @@
+{
+    "react": {
+        "fastapi_url": "{ip address where logs are dumped by FastAPI}"
+    }
+}
