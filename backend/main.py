@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import re
+import json
 
-
+with open('config.json') as config_file:
+    config = json.load(config_file)
 
 app = FastAPI()
 app.add_middleware(
@@ -13,8 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-LOG_FILE_PATH = '{path to access.log)'
-
+LOG_FILE_PATH = config['fastapi']['log_file_path']
 
 @app.get("/logs")
 def get_access_logs():
