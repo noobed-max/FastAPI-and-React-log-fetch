@@ -14,9 +14,14 @@ and i have for my comfort setup a mcvlan network and connected each of the conta
 
 NOTE: if you dont really want to create a mcvlan remove the [[ --network  {mcvlan network name}]] from the below commands and u have to open up separate ports for each of the containers so than the fast_api json file can be dumped on a host port and ngnix is also hosted on its own port which establishes reverse proxy connection to  react web application which again is hosted on a separate port. Therefore each application have same ip but hosted on different ports.
 
-<pre>docker run --name nginx_fastapi --network {mcvlan network name} -itd nginx </pre>
+```bash
+docker run --name nginx_fastapi --network {mcvlan network name} -itd nginx
+```
 
-<pre>docker run --name  react_server --network {mcvlan network name} -itd debian </pre>
+```bash
+docker run --name  react_server --network {mcvlan network name} -itd debian
+```
+
 
 ---
 
@@ -25,7 +30,9 @@ NOTE: if you dont really want to create a mcvlan remove the [[ --network  {mcvla
 
 start an interactive session with nginx_fastapi:
 
-<pre>docker exec -it nginx_fastapi /bin/bash </pre>
+```bash
+docker exec -it nginx_fastapi /bin/bash 
+```
 
 Now run the following command in nginx_fastapi sesion
 
