@@ -65,7 +65,7 @@ Now run the following command in react_server sesion:
 
 ```bash
 apt-get update && apt install -y git ca-certificates curl gnupg && mkdir -p /etc/apt/keyrings && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && NODE_MAJOR=20
-echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && apt-get update && apt-get install nodejs -y && git clone https://github.com/noobed-max/FastAPI-and-React-log-fetch.git /home/react && rm -rf /home/react/backend/ && cd /home/react/frontend/ && npm install axios && npm start
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && apt-get update && apt-get install nodejs -y && git clone https://github.com/noobed-max/FastAPI-and-React-log-fetch.git /home/react && rm -rf /home/react/backend/ && cd /home/react/frontend/ && npm install axios
 ```
 you would obtain a address in terminal session redirecting to react web application copy the address and paste it in place of {ract_server ip} in the Nginx and fatsapi configuration: pasrt.
 
