@@ -34,6 +34,10 @@ start an interactive session with nginx_fastapi:
 docker exec -it nginx_fastapi /bin/bash 
 ```
 
+## THE NOTE OF ETERNITY:
+Ahm Ahm, please do note that having a blank access.log file will result in [fastapi ip]/logs to never load , and yea I didnt have the patience to add a exception to return error when access.log file is blank so if u run into that issue solve it by using benchmark on the nginx host ip and again if it still persist to not show logs, than my guy u have run into the fatal unknown error of linux realm that transcendence the mind of Noobed-max(basically i cant explain) but I am who i am the saviour ofc so here's the solution: force remove the access.log directory and restart nginx and use benchmark again before starting the lame main.py, and viola my pupils u got it working(i hope so if not , goodluck and goodbye 
+---
+
 Now run the following command in nginx_fastapi sesion
 
 BIG NOTE: change the {react_server ip} to the ip address or host addresss of react_server i.e the address provided when u run the react application in the below React_server configuration guide
